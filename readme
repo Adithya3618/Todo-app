@@ -161,8 +161,7 @@ app.run(debug=True)
 ## Screenshots
 
 ### Login Page
-![Login Page](https://raw.githubusercontent.com/Adithya3618/Todo-app/main/images/Screenshot%202025-08-20%20230132.png)
-
+![Todo App Screenshot](https://github.com/Adithya3618/Todo-app/blob/79ec52c70030631c0539f3ecdf3a70b243e19b61/images/Screenshot%202025-08-20%20230132.png?raw=true)
 
 
 ### Register Page
