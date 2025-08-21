@@ -158,24 +158,5 @@ For development, enable debug mode by changing:
 python
 app.run(debug=True)
 
-## Screenshots
 
-### Login Page
-![Todo App Screenshot](https://github.com/Adithya3618/Todo-app/blob/6a1186bc2c4d0aee4dbca6a9b86194cbebc09a9f/images/Screenshot%202025-08-20%20230132.png)
-
-
-### Register Page
-![Register Page](https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230143.png?raw=true)
-
-### Dashboard
-![Dashboard](https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230200.png?raw=true)
-
-### Todo List
-![Todo List](https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230218.png?raw=true)
-
-### Password Reset
-![Password Reset](https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230237.png?raw=true)
-
-### Completed Task Example
-![Completed Task](https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230252.png?raw=true)
 
