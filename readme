@@ -158,16 +158,23 @@ For development, enable debug mode by changing:
 python
 app.run(debug=True)
 
-Images
+## Screenshots
 
-https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230132.png?raw=true
+### Login Page
+![Login Page](https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230132.png?raw=true)
 
-https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230143.png?raw=true
+### Register Page
+![Register Page](https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230143.png?raw=true)
 
-https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230200.png?raw=true
+### Dashboard
+![Dashboard](https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230200.png?raw=true)
 
-https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230218.png?raw=true
+### Todo List
+![Todo List](https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230218.png?raw=true)
 
-https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230237.png?raw=true
+### Password Reset
+![Password Reset](https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230237.png?raw=true)
 
-https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230252.png?raw=true
+### Completed Task Example
+![Completed Task](https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230252.png?raw=true)
+
