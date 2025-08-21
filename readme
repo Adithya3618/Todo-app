@@ -1,0 +1,161 @@
+# Flask Todo Application
+
+A secure web application built with Flask that provides user authentication and personal todo list management.
+
+## Features
+
+- **User Authentication**: Secure registration and login system with password hashing
+- **Password Recovery**: Forgot password functionality with email-based reset
+- **Personal Dashboard**: Protected user dashboard with session management
+- **Todo Management**: Create, view, and delete personal todo items
+- **Responsive Design**: Bootstrap-powered responsive UI
+- **Security**: Session-based authentication with user data isolation
+
+## Tech Stack
+
+- **Backend**: Flask 2.3.3
+- **Database**: SQLite with SQLAlchemy ORM
+- **Authentication**: Werkzeug password hashing
+- **Frontend**: HTML5, Bootstrap 5.3.0, Jinja2 templates
+- **Email**: Flask-Mail for password reset functionality
+
+## Installation & Setup
+
+### Prerequisites
+
+- Python 3.7 or higher
+- pip (Python package installer)
+
+### Step 1: Clone or Download
+
+Download the project files to your local machine.
+
+### Step 2: Create Virtual Environment
+
+\`\`\`bash
+# Create virtual environment
+python -m venv flask_todo_env
+
+# Activate virtual environment
+# On Windows:
+flask_todo_env\Scripts\activate
+# On macOS/Linux:
+source flask_todo_env/bin/activate
+\`\`\`
+
+### Step 3: Install Dependencies
+bash
+pip install -r requirements.txt
+
+
+### Step 4: Configure Email (Optional)
+
+For password reset functionality, configure email settings in `app.py`:
+
+python
+# Email configuration (update with your SMTP settings)
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'your-email@gmail.com'
+app.config['MAIL_PASSWORD'] = 'your-app-password'
+
+
+### Step 5: Initialize Database
+
+bash
+python app.py
+
+
+The application will automatically create the SQLite database (`todo_app.db`) on first run.
+
+### Step 6: Run the Application
+
+bash
+python app.py
+
+
+Visit `http://127.0.0.1:5000` in your web browser.
+
+## Usage
+
+### Getting Started
+
+1. **Register**: Create a new account at `/register`
+2. **Login**: Sign in with your credentials at `/login`
+3. **Dashboard**: Access your personal todo list at `/dashboard`
+4. **Manage Todos**: Add new todos and delete completed ones
+5. **Logout**: Securely end your session
+
+### Password Recovery
+
+If you forget your password:
+1. Click "Forgot Password?" on the login page
+2. Enter your email address
+3. Check your email for reset instructions
+4. Follow the link to set a new password
+
+## Project Structure
+
+\`\`\`
+flask-todo-app/
+├── app.py                 # Main Flask application
+├── models.py              # Database models (User, Todo)
+├── requirements.txt       # Python dependencies
+├── README.md             # This file
+├── todo_app.db           # SQLite database (created automatically)
+└── templates/            # HTML templates
+    ├── login.html        # Login page
+    ├── register.html     # Registration page
+    ├── forgot_password.html  # Password recovery
+    ├── reset_password.html   # Password reset form
+    └── dashboard.html    # User dashboard with todos
+\`\`\`
+
+## Dependencies
+
+- **Flask 2.3.3**: Web framework
+- **SQLAlchemy 2.0.23**: Database ORM
+- **Werkzeug 2.3.7**: Password hashing utilities
+- **Flask-Mail 0.9.1**: Email functionality
+- **itsdangerous 2.1.2**: Secure token generation
+
+## Security Features
+
+- **Password Hashing**: All passwords are securely hashed using Werkzeug
+- **Session Management**: Secure session-based authentication
+- **User Isolation**: Users can only access their own todos
+- **CSRF Protection**: Forms include security tokens
+- **Input Validation**: Server-side validation for all user inputs
+
+## API Endpoints
+
+- `GET /` - Home page (redirects to login)
+- `GET /login` - Login form
+- `POST /login` - Process login
+- `GET /register` - Registration form
+- `POST /register` - Process registration
+- `GET /forgot_password` - Password recovery form
+- `POST /forgot_password` - Send reset email
+- `GET /reset_password/<token>` - Password reset form
+- `POST /reset_password/<token>` - Process password reset
+- `GET /dashboard` - User dashboard (protected)
+- `POST /add_todo` - Add new todo (protected)
+- `POST /delete_todo/<id>` - Delete todo (protected)
+- `GET /logout` - Logout and end session
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Database errors**: Delete `todo_app.db` and restart the application
+2. **Email not working**: Check SMTP configuration in `app.py`
+3. **Port already in use**: Change the port in `app.run(port=5001)`
+
+### Development Mode
+
+For development, enable debug mode by changing:
+python
+app.run(debug=True)
+
+

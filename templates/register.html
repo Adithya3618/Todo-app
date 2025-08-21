@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Elegant Todo App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --accent: #fd79a8;
+            --success: #00b894;
+            --light: #f8f9fa;
+            --dark: #2d3436;
+            --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .register-container {
+            width: 100%;
+            max-width: 450px;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(120deg, var(--success), #00a382);
+            color: white;
+            border-bottom: none;
+            padding: 1.8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0.2),
+                rgba(255, 255, 255, 0)
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite linear;
+        }
+        
+        .card-header h3 {
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+        }
+        
+        .card-body {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #495057;
+            display: flex;
+            align-items: center;
+        }
+        
+        .form-label i {
+            margin-right: 0.5rem;
+            color: var(--success);
+        }
+        
+        .form-control {
+            border-radius: 12px;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid #eef2f7;
+            transition: var(--transition);
+            height: auto;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            border-color: var(--success);
+            box-shadow: 0 0 0 0.25rem rgba(0, 184, 148, 0.25);
+            outline: none;
+        }
+        
+        .password-strength {
+            height: 5px;
+            background: #eef2f7;
+            border-radius: 3px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .password-strength-bar {
+            height: 100%;
+            width: 0;
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+        
+        .password-requirements {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+        
+        .requirement {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.25rem;
+        }
+        
+        .requirement i {
+            margin-right: 0.5rem;
+            font-size: 0.7rem;
+            width: 14px;
+        }
+        
+        .requirement.met {
+            color: var(--success);
+        }
+        
+        .btn-register {
+            background: linear-gradient(120deg, var(--success), #00a382);
+            border: none;
+            border-radius: 12px;
+            padding: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            width: 100%;
+            color: white;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+        
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 184, 148, 0.4);
+        }
+        
+        .btn-register:active {
+            transform: translateY(0);
+        }
+        
+        .links {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .links a {
+            color: var(--success);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--success);
+            transition: var(--transition);
+        }
+        
+        .links a:hover::after {
+            width: 100%;
+        }
+        
+        .alert {
+            border-radius: 12px;
+            border: none;
+            padding: 1rem 1.5rem;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        .form-check {
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .form-check-input {
+            margin-top: 0.3rem;
+            margin-right: 0.5rem;
+        }
+        
+        .form-check-label {
+            font-size: 0.9rem;
+        }
+        
+        .form-check-label a {
+            color: var(--success);
+            text-decoration: none;
+        }
+        
+        .form-check-label a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes shine {
+            from {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            to {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 576px) {
+            .card-body {
+                padding: 1.5rem;
+            }
+            
+            .card-header {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="card">
+            <div class="card-header">
+                <h3><i class="fas fa-user-plus me-2"></i>Create Account</h3>
+            </div>
+            <div class="card-body">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show d-flex align-items-center">
+                                <i class="fas fa-{{ 'exclamation-triangle' if category == 'error' else 'check-circle' }} me-2"></i>
+                                <div>{{ message }}</div>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
+                <form method="POST" id="registerForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">
+                            <i class="fas fa-user"></i>Full Name
+                        </label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope"></i>Email address
+                        </label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required value="Enter email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="form-label">
+                            <i class="fas fa-lock"></i>Password
+                        </label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Create a strong password" required>
+                        <div class="password-strength">
+                            <div class="password-strength-bar" id="passwordStrengthBar"></div>
+                        </div>
+                        <div class="password-requirements">
+                            <div class="requirement" id="reqLength">
+                                <i class="fas fa-circle"></i>
+                                <span>At least 8 characters</span>
+                            </div>
+                            <div class="requirement" id="reqUpperCase">
+                                <i class="fas fa-circle"></i>
+                                <span>One uppercase letter</span>
+                            </div>
+                            <div class="requirement" id="reqNumber">
+                                <i class="fas fa-circle"></i>
+                                <span>One number</span>
+                            </div>
+                            <div class="requirement" id="reqSpecial">
+                                <i class="fas fa-circle"></i>
+                                <span>One special character</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="terms" required>
+                        <label class="form-check-label" for="terms">
+                            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-register">
+                        <i class="fas fa-user-plus me-2"></i>Create Account
+                    </button>
+                </form>
+                
+                <div class="links">
+                    <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Password strength indicator
+            const passwordInput = document.getElementById('password');
+            const strengthBar = document.getElementById('passwordStrengthBar');
+            const requirements = {
+                length: document.getElementById('reqLength'),
+                upperCase: document.getElementById('reqUpperCase'),
+                number: document.getElementById('reqNumber'),
+                special: document.getElementById('reqSpecial')
+            };
+            
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                let strength = 0;
+                
+                // Check length
+                if (password.length >= 8) {
+                    strength += 25;
+                    requirements.length.classList.add('met');
+                    requirements.length.querySelector('i').className = 'fas fa-check-circle';
+                } else {
+                    requirements.length.classList.remove('met');
+                    requirements.length.querySelector('i').className = 'fas fa-circle';
+                }
+                
+                // Check uppercase
+                if (/[A-Z]/.test(password)) {
+                    strength += 25;
+                    requirements.upperCase.classList.add('met');
+                    requirements.upperCase.querySelector('i').className = 'fas fa-check-circle';
+                } else {
+                    requirements.upperCase.classList.remove('met');
+                    requirements.upperCase.querySelector('i').className = 'fas fa-circle';
+                }
+                
+                // Check numbers
+                if (/[0-9]/.test(password)) {
+                    strength += 25;
+                    requirements.number.classList.add('met');
+                    requirements.number.querySelector('i').className = 'fas fa-check-circle';
+                } else {
+                    requirements.number.classList.remove('met');
+                    requirements.number.querySelector('i').className = 'fas fa-circle';
+                }
+                
+                // Check special characters
+                if (/[^A-Za-z0-9]/.test(password)) {
+                    strength += 25;
+                    requirements.special.classList.add('met');
+                    requirements.special.querySelector('i').className = 'fas fa-check-circle';
+                } else {
+                    requirements.special.classList.remove('met');
+                    requirements.special.querySelector('i').className = 'fas fa-circle';
+                }
+                
+                // Update strength bar
+                strengthBar.style.width = `${strength}%`;
+                
+                // Update colors based on strength
+                if (strength < 50) {
+                    strengthBar.style.background = '#dc3545';
+                } else if (strength < 100) {
+                    strengthBar.style.background = '#fd7e14';
+                } else {
+                    strengthBar.style.background = '#00b894';
+                }
+            });
+            
+            // Form validation
+            const registerForm = document.getElementById('registerForm');
+            registerForm.addEventListener('submit', function(e) {
+                let valid = true;
+                
+                // Check if terms are accepted
+                if (!document.getElementById('terms').checked) {
+                    valid = false;
+                    alert('Please accept the Terms of Service and Privacy Policy');
+                }
+                
+                if (!valid) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
