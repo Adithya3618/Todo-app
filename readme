@@ -97,7 +97,7 @@ If you forget your password:
 
 ## Project Structure
 
-\`\`\`
+
 flask-todo-app/
 ├── app.py                 # Main Flask application
 ├── models.py              # Database models (User, Todo)
@@ -110,7 +110,7 @@ flask-todo-app/
     ├── forgot_password.html  # Password recovery
     ├── reset_password.html   # Password reset form
     └── dashboard.html    # User dashboard with todos
-\`\`\`
+
 
 ## Dependencies
 
@@ -158,4 +158,16 @@ For development, enable debug mode by changing:
 python
 app.run(debug=True)
 
+Images
 
+https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230132.png?raw=true
+
+https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230143.png?raw=true
+
+https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230200.png?raw=true
+
+https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230218.png?raw=true
+
+https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230237.png?raw=true
+
+https://github.com/Adithya3618/Todo-app/blob/main/images/Screenshot%202025-08-20%20230252.png?raw=true
